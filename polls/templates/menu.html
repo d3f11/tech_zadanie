@@ -1,0 +1,23 @@
+<ul id="myUL">
+        {% load tags %}
+    <h3>Menu name: {{ menu_name }}</h3>
+
+        {% for item in data %}
+            {% if item == "in" %}
+                <details><ul>
+            {% else %}
+                {% if item == "out" %}
+                  </ul></details>
+                {% else %}
+                    <li>
+                        <summary><a id="{{item.id}}" {% if request.path == item.slug|slashes %} style="color: red" {% endif %} href="{% url 'polls:menu_link' item.slug %}#{{item.id}}">{{ item.title }}</a></summary>
+
+
+
+                    {% if item.leaf %}
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+</ul>

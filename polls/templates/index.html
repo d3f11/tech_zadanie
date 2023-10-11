@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <style>
+    a:target {
+        background-color: lightblue;
+    }
+    </style>
+
+</head>
+<body>
+{% with request.resolver_match.view_name as view_name %}<br>
+<a {% if view_name == 'polls:index' %} style="color: red" {% endif %} href="{% url 'polls:index' %}"> index </a>
+{% endwith %}
+{% draw_menu 'test' %}
+{% draw_menu 'Main' %}
+{% block content %}
+ <h1>Main page</h1>
+{% endblock %}
+</body>
+</html>
