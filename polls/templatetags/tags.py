@@ -9,6 +9,8 @@ register = template.Library()
 
 @register.inclusion_tag('menu.html', takes_context=True)
 def draw_menu(context, menu_name):
+    if not menu_name:
+        return
     request = context['request']
     menu_name_data = MainMenu.objects.filter(menu__name=menu_name)
     data = get_category_nav(menu_name_data, menu_name=menu_name)
