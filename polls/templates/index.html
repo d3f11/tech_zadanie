@@ -15,8 +15,7 @@
 {% with request.resolver_match.view_name as view_name %}<br>
 <a {% if view_name == 'polls:index' %} style="color: red" {% endif %} href="{% url 'polls:index' %}"> index </a>
 {% endwith %}
-{% draw_menu 'test' %}
-{% draw_menu 'Main' %}
+<!-- {% draw_menu 'name' %} -->
 {% block content %}
  <h1>Main page</h1>
 {% endblock %}
