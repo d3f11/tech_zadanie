@@ -10,10 +10,11 @@
                   </ul></details>
                 {% else %}
                     <li>
-                        <summary><a id="{{item.id}}" {% if request.path == item.slug|slashes %} style="color: red" {% endif %} href="{% url 'polls:menu_link' item.slug %}#{{item.id}}">{{ item.title }}</a></summary>
-
-
-
+                        <summary>
+                                <a id="{{item.id}}" {% if request.path == item.slug|slashes %} style="color: red" {% endif %} href="{% url 'polls:menu_link' item.slug %}#{{item.id}}">
+                                        {{ item.title }}
+                                </a>
+                        </summary>
                     {% if item.leaf %}
                         </li>
                     {% endif %}
